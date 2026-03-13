@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杀死那个蛙大皮</title>
+
+
+    <!--
+    <link rel="stylesheet" href="style.css">
+    -->
+
+    <style>
+        body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+    }
+
+    #game-container {
+    display: none;
+    }
+
+    #game-area {
+        width: 600px;
+        height: 300px;
+        border: 2px solid white;
+        margin: 20px auto;
+        position: relative;
+        background-color: #222;
+        }
+
+        #player {
+    width: 50px;
+    height: 50px;
+    background-image: url('aji.png');
+    background-size: cover;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.frog {
+    width: 45px;
+    height: 40px;
+    background-image: url('frog.png');
+    background-size: cover;
+    position: absolute;
+}
+
+.blood {
+    width: 40px;
+    height: 40px;
+    background-image: url('blood.png');
+    background-size: cover;
+    position: absolute;
+}
+
+
+#controls {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* 让移动键左对齐 */
+#move-controls {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px;
+    gap: 5px;
+}
+
+/* 方向键布局 */
+#move-up {
+    grid-column: 2;
+}
+
+#move-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#move-down {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#move-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/* 让攻击键固定在右下角 */
+#attack {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* 适配手机屏幕，缩小按钮 */
+@media (max-width: 600px) {
+    #move-controls {
+        grid-template-columns: 40px 40px 40px;
+        grid-template-rows: 40px 40px;
+    }
+
+    button {
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #attack {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+    }
+}
+
+
+
+    button {
+        font-size: 20px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+</style>
+
+</head>
+<body>
+    <h1>杀死那个蛙大皮</h1>
+    
+    <!-- 选择要杀多少只青蛙 -->
+    <div id="start-screen">
+        <p>你想杀多少只青蛙？</p>
+        <button onclick="startGame(5)">5只</button>
+        <button onclick="startGame(10)">10只</button>
+        <button onclick="startGame(Math.floor(Math.random() * 10) + 5)">随机</button>
+    </div>
+
+    <div id="game-container">
+        <div id="game-area">
+            <div id="player"></div> <!-- 玩家角色 -->
+        </div>
+        <div id="controls">
+            <div id="move-controls">
+                <button id="move-up">↑</button><br>
+                <button id="move-left">←</button>
+                <button id="move-down">↓</button>
+                <button id="move-right">→</button>
+            </div>
+            <button id="attack">攻击</button>
+        </div>
+        
+    </div>
+
+    <script src="杀死那个蛙大皮.jsx"></script>
+</body>
+</html>
